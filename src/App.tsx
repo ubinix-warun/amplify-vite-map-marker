@@ -17,7 +17,7 @@ function App() {
 
   return (
       <Authenticator>
-          {({ signOut, user }) => (
+          {({ signOut }) => (
 
               <>
                   <div>
