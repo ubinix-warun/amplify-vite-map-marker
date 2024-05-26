@@ -15,7 +15,8 @@
     "@aws-amplify/ui-react-geo": "^2.0.16",
     "aws-amplify": "^6.3.4",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-map-gl": "^7.1.7"
   },
   "devDependencies": {
     "@aws-amplify/backend": "^1.0.2",

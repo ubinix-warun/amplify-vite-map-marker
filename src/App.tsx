@@ -1,5 +1,6 @@
 import { useState } from 'react'
 // import { Marker } from 'react-map-gl'; // Note: this dependency should NOT be installed separately
+// import { Marker } from 'react-map-gl/dist/es5';
 
 import { Authenticator } from '@aws-amplify/ui-react'
 import { Button } from '@aws-amplify/ui-react'
@@ -22,13 +23,13 @@ Amplify.configure(outputs);
 function App() {
   const [count, setCount] = useState(0)
 
-    // const [{ latitude, longitude }, setMarkerLocation] = useState({
-    //     latitude: 40,
-    //     longitude: -100,
-    // });
-    //
-    // const updateMarker = () =>
-    //     setMarkerLocation({ latitude: latitude + 5, longitude: longitude + 5 });
+    const [{ latitude, longitude }, setMarkerLocation] = useState({
+        latitude: 40,
+        longitude: -100,
+    });
+
+    const updateMarker = () =>
+        setMarkerLocation({ latitude: latitude + 5, longitude: longitude + 5 });
 
   return (
       <Authenticator>
@@ -55,9 +56,15 @@ function App() {
                   <p className="read-the-docs">
                       Click on the Vite and React logos to learn more
                   </p>
-                  {/*<Button onClick={updateMarker}>Move Marker</Button>*/}
-                  <MapView>
-                  {/*    <Marker latitude={latitude} longitude={longitude} />*/}
+                  <Button onClick={updateMarker}>Move Marker</Button>
+                  <MapView
+                      initialViewState={{
+                      latitude: 37.8,
+                      longitude: -122.4,
+                      zoom: 14,
+                  }}
+                      >
+                      {/*<Marker latitude={latitude} longitude={longitude} />*/}
                   </MapView>
                   <Button onClick={signOut}>Sign out</Button>
                   <PWABadge/>
